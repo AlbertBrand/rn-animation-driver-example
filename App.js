@@ -9,6 +9,9 @@ import {
   View,
 } from 'react-native';
 
+import MessageQueue from 'MessageQueue';
+MessageQueue.spy(true);
+
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const xOffset = new Animated.Value(0);
