@@ -13,18 +13,21 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const xOffset = new Animated.Value(0);
 
-const onScroll = Animated.event([{ nativeEvent: { contentOffset: { x: xOffset } } }]);
+const onScroll = Animated.event(
+  [{ nativeEvent: { contentOffset: { x: xOffset } } }],
+  { useNativeDriver: true }
+);
 
 function CardView(props: { children?: ReactElement<*> }) {
   return (
-    <ScrollView
+    <Animated.ScrollView
       scrollEventThrottle={16}
       onScroll={onScroll}
       horizontal
       pagingEnabled
       style={style.scrollView}>
       {props.children}
-    </ScrollView>
+    </Animated.ScrollView>
   )
 }
 
